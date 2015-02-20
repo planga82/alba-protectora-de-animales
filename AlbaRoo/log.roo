@@ -1,0 +1,225 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-06-16 21:48:31
+project --topLevelPackage com.base --projectName AlbaRoo --java 7 --packaging JAR
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-06-16 21:48:39
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-06-16 21:51:17
+hint
+ jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+ entity jpa --class ~.especie --testAutomatically
+ field string --fieldName nombre
+// [failed]  perform package
+hint
+// [failed] perform tests
+hint eclipse
+// [failed] perform eclipse
+hint perform
+hint
+// [failed] perform tests
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-06-16 22:38:26
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-06-19 18:35:01
+hint
+// [failed] perform package
+hint perform package
+hint perform
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-06-19 19:06:36
+// [failed] perform package
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-06-19 21:06:41
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-06-24 17:04:15
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-06-24 22:31:04
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-03 17:30:53
+hint
+help project
+help topLevelPackage
+entity jpa ---class com.base.entidades.animales.Animal
+hint
+field string --fieldName chip 
+ entity jpa --class com.base.entidades.animales.Especie --testAutomatically
+entity jpa ---class com.base.entidades.animales.Animal --testAutomatically 
+class --class com.base.entidades.animales.historicoPesos
+entity jpa --class com.base.entidades.animales.historicoPesos
+focus --class Animal
+field set --fieldName historicoPesos --type HistoricoPesos
+// [failed] field embedded --fieldName especie --type Especie
+field embedded --fieldName especie --type Especie
+// [failed] field embedded --fieldName especie --type Especie
+entity jpa --class com.base.entidades.personas.Persona --testAutomatically 
+entity jpa --class com.base.entidades.instituciones.Institucion --testAutomatically 
+entity jpa --class com.base.entidades.ubicaciones.UbicacionPersona --testAutomatically 
+entity jpa --class com.base.entidades.ubicaciones.UbicacionInstitucion --testAutomatically 
+// [failed] focus --class Persona
+focus --class ~.entidades.personas.Persona
+field set --fieldName ubicaciones --type com.base.entidades.ubicaciones.UbicacionPersona
+focus --class ~.entidades.ubicaciones.UbicacionPersona
+field reference --fieldName persona --type ~.entidades.personas.Persona
+field string --fieldName identificador 
+// [failed] field string --fieldName identificador 
+field string --fieldName estado
+field string --fieldName motivoBaja
+field set --fieldName animales --type com.base.entidades.animales.Animal
+focus --class ~.entidades.ubicaciones.UbicacionInstitucion
+field reference --fieldName institucion --type ~.entidades.instituciones.Institucion
+field string --fieldName identificador 
+field string --fieldName estado
+field string --fieldName motivoBaja
+field set --fieldName animales --type com.base.entidades.animales.Animal
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-03 22:19:13
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-08 19:18:18
+entity jpa --class com.base.entidades.ubicaciones.Ubicacion --testAutomatically 
+focus --class ~.entidades.instituciones.Institucion
+field string --fieldName nombre
+field string --fieldName DNI
+field string --fieldName direccion
+field string --fieldName personaContacto
+field string --fieldName telefonoContacto
+// [failed] field string --fieldName telefonoContacto
+field string --fieldName emailContacto
+field string --fieldName estado
+field string --fieldName motivoBaja
+field set --fieldName ubicaciones --type com.base.entidades.ubicaciones.UbicacionInstitucion
+field string --fieldName paginaWeb
+field string --fieldName cuentaCargo
+entity jpa --class com.base.entidades.instituciones.Departamento --testAutomatically 
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-08 19:59:09
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-09 19:00:10
+focus --class ~.entidades.instituciones.Departamento
+field string --fieldName nombre
+field string --fieldName personaContacto
+field string --fieldName email
+field string --fieldName telefono
+focus --class ~.entidades.instituciones.Institucion
+// [failed] field embedded --fieldName despartamento1 --type Departamento
+field embedded --fieldName departamento1 --type Departamento
+field embedded --fieldName departamento2 --type Departamento
+field embedded --fieldName departamento3 --type Departamento
+entity jpa --class com.base.entidades.instituciones.TipoInstitucion --testAutomatically 
+field string --fieldName nombre
+focus --class ~.entidades.instituciones.Institucion
+field embedded --fieldName tipo --type TipoInstitucion
+// [failed] focus --class Animal
+focus --class ~.entidades.animales.Animal
+field reference --fieldName ubicacionActual --type ~.entidades.ubicaciones.Ubicacion
+entity jpa --class com.base.entidades.animales.historicoUbicaciones
+field date --fieldName fechaEntrada --type java.sql.Date
+field date --fieldName fechaSalida --type java.sql.Date
+field other --fieldName ubicacion --type Ubicacion
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-09 20:16:21
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-11 16:46:08
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-11 16:58:43
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-11 17:04:52
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-11 21:26:22
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-15 17:17:35
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-15 23:07:38
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-16 19:35:30
+logging setup --level ERROR
+test integration --entity ~.entidades.animales.Animal
+test integration --entity ~.entidades.animales.Especie
+test integration --entity ~.entidades.animales.HistoricoPesos
+test integration --entity ~.entidades.animales.HistoricoUbicaciones
+test integration --entity ~.entidades.instituciones.Institucion
+test integration --entity ~.entidades.instituciones.TipoInstitucion
+test integration --entity ~.entidades.personas.Persona
+test integration --entity ~.entidades.ubicaciones.UbicacionInstitucion
+test integration --entity ~.entidades.ubicaciones.UbicacionPersona
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-16 20:00:29
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-17 16:33:56
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-17 20:36:50
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-24 16:37:45
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-24 22:22:25
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-25 09:40:55
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-25 12:10:26
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-28 11:41:05
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-28 20:48:18
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-29 20:53:36
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-30 16:24:16
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-30 19:32:17
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-30 22:08:46
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-30 23:11:12
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-07-31 20:50:37
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-07-31 22:44:52
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-01 16:52:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-01 22:02:29
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-06 20:09:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-06 20:45:52
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-07 19:27:47
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-07 22:17:53
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-10 11:37:23
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-10 13:14:38
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-14 17:37:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-14 20:14:10
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-20 20:05:55
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-20 21:35:09
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-23 18:33:20
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-23 20:52:28
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-26 18:28:12
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-26 23:23:24
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-26 23:28:56
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-26 23:40:53
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-27 16:27:05
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-27 16:51:23
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-27 16:56:58
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-27 21:47:37
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-29 16:46:23
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-29 21:57:12
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-31 19:32:17
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-08-31 23:16:23
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-08-31 23:35:46
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-09-01 00:07:26
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-09-01 09:06:57
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-09-01 09:17:02
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-09-01 09:36:32
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-09-01 13:00:31
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-09-01 14:30:41
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-09-01 15:36:52
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-10-06 11:48:32
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-10-06 13:10:13
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-10-06 15:59:17
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-10-06 16:29:12
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-10-06 19:14:32
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-10-06 21:32:15
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-10-09 19:12:49
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-10-09 22:58:49
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-10-25 21:13:12
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-10-25 23:47:04
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-10-27 09:28:38
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-10-27 13:27:37
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-01 11:40:57
+hint
+hint entities
+entity jpa --class com.base.entidades.personas.relacionesALBA
+hint
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-01 15:14:13
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-01 22:01:54
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-02 21:35:13
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-02 22:52:36
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-03 19:35:17
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-03 22:06:06
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-04 09:37:30
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-04 10:53:24
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-10 20:54:30
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-10 23:32:39
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-17 14:03:47
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-17 16:46:53
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-17 17:10:15
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-17 19:04:44
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-22 21:07:42
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-22 22:18:32
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-22 22:24:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-11-22 22:51:48
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-12-12 19:56:52
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-12-12 20:06:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-12-12 20:26:55
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-12-12 22:15:23
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-12-17 21:05:05
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-12-17 23:14:17
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-01-11 21:36:23
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-01-11 22:31:57
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-01-26 20:07:22
+jpa setup --provider HIBERNATE --database MySQL --databaseName test --userName pablo --password pablo
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-01-26 22:14:25
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-02-07 20:29:13
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-07 23:10:46
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-02-17 21:07:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-17 21:55:24
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-02-20 18:21:05
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-20 20:53:01
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-02-21 16:35:54
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-21 23:10:55
