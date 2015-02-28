@@ -223,3 +223,6 @@ jpa setup --provider HIBERNATE --database MySQL --databaseName test --userName p
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-20 20:53:01
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-02-21 16:35:54
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-21 23:10:55
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2015-02-28 18:56:00
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2015-02-28 21:47:54

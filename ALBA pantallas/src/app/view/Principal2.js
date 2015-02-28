@@ -88,12 +88,7 @@ Ext.define('AM.view.Principal2', {
 							text: 'Alta institución',
 							action: 'altaInstitucion',
 							scope: this
-						},{
-							xtype: 'button',
-							text: 'Listados',
-							action: 'listados',
-							scope: this
-						}  
+						}
 				    ]
 				},{
 					header: false,
