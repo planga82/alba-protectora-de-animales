@@ -3,7 +3,7 @@ Ext.define('AM.view.AltaPersona', {
     	alias: 'widget.altaPersona',    											
 	title: 'Alta de Persona',
 	autoScroll: false,
-	url: "http://localhost:8080/AlbaControlador/altaPersona",
+	url: "/AlbaControlador/altaPersona",
     	layout: {
             type:'vbox',
             padding:'5',

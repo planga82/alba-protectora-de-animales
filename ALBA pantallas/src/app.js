@@ -61,7 +61,7 @@ Ext.application({
 		storeRecargar=null;
 		
 		Ext.Ajax.request({
-                   url: "http://localhost:8080/AlbaControlador/Arranque",
+                   url: "/AlbaControlador/Arranque",
                    success: function(response, action) {
                       console.log('Inicializacion correcta');
                    },

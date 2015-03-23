@@ -402,7 +402,7 @@ Ext.define('AM.controller.Animales', {
 		
 		data.id = idAnimal;
 		Ext.Ajax.request({
-			url: "http://localhost:8080/AlbaControlador/cambioUbicacionAnimal",
+			url: "/AlbaControlador/cambioUbicacionAnimal",
 			params: data,
 			success: function(form, action) {
 				Ext.Msg.alert('Cambio Ubicacion realizado correctamente');

@@ -3,7 +3,7 @@ Ext.define('AM.store.TiposInstituciones', {
     	model: 'AM.model.TipoInstitucion',
 	proxy: {
             type: 'ajax',
-            url : 'http://localhost:8080/AlbaControlador/listadoTipoInstituciones',
+            url : '/AlbaControlador/listadoTipoInstituciones',
             reader: {
 				type: 'json',
 				root: 'tipoInstituciones'

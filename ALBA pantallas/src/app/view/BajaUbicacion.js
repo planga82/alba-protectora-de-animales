@@ -3,7 +3,7 @@ Ext.define('AM.view.BajaUbicacion', {
     	alias: 'widget.bajaUbicacion',    											
 	title: 'Baja de Ubicacion',
 	autoScroll: false,
-	url: "http://localhost:8080/AlbaControlador/bajaUbicacion",
+	url: "/AlbaControlador/bajaUbicacion",
     	layout: {
             type:'vbox',
             padding:'5',

@@ -4,7 +4,7 @@ Ext.define('AM.store.HistoricoPesos', {
 	
 		proxy: {
             	type: 'ajax',
-            	url : 'http://localhost:8080/AlbaControlador/historicoPesos',
+            	url : '/AlbaControlador/historicoPesos',
             	reader: {
 				type: 'json',
 				root: 'historicoPesos'

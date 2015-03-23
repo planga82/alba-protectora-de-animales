@@ -3,7 +3,7 @@ Ext.define('AM.store.ResultadoBusquedaAnimales', {
     	model: 'AM.model.ResultadoBusquedaAnimales',
 		proxy: {
             type: 'ajax',
-            url : 'http://localhost:8080/AlbaControlador/busquedaAnimal',
+            url : '/AlbaControlador/busquedaAnimal',
             reader: {
 				type: 'json',
 				root: 'animales'

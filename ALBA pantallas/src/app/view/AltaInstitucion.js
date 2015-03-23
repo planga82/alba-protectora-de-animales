@@ -3,7 +3,7 @@ Ext.define('AM.view.AltaInstitucion', {
     	alias: 'widget.altaInstitucion',    											
 	title: 'Alta de Institución',
 	autoScroll: false,
-	url: "http://localhost:8080/AlbaControlador/altaInstitucion",
+	url: "/AlbaControlador/altaInstitucion",
     	layout: {
             type:'vbox',
             padding:'5',

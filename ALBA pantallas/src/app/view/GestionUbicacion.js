@@ -10,7 +10,7 @@ Ext.define('AM.view.GestionUbicacion', {
 				    header:false,
 				    height: 50,
 				    layout: 'hbox',
-				    url: "http://localhost:8080/AlbaControlador/gestionUbicacion",
+				    url: "/AlbaControlador/gestionUbicacion",
 				    bodyStyle:{"background-color":"#E6E6E6"},
 				    defaults:{
 				    	margin:'10 10 10 10'
@@ -88,7 +88,7 @@ Ext.define('AM.view.GestionUbicacion', {
 						            handler: function(grid, rowIndex, colIndex) {
 						            	var data = grid.getStore().getAt(rowIndex).data;
 						                Ext.Ajax.request({
-						        			url: "http://localhost:8080/AlbaControlador/bajaUbicacion",
+						        			url: "/AlbaControlador/bajaUbicacion",
 						        			params: data,
 						        			success: function(form, action) {
 						        				grid.getStore().removeAt(rowIndex);

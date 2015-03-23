@@ -2,7 +2,7 @@ Ext.define('AM.view.AltaTipoInstitucion', {
     	extend: 'Ext.form.Panel',    
     	alias: 'widget.altaTipoInstitucion',    											
 	title: 'Alta de Tipo de Institución',
-	url: "http://localhost:8080/AlbaControlador/altaTipoInstitucion",
+	url: "/AlbaControlador/altaTipoInstitucion",
 	autoScroll: false,
     	layout: {
             type:'vbox',

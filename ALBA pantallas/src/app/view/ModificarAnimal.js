@@ -3,7 +3,7 @@ Ext.define('AM.view.ModificarAnimal', {
     	alias: 'widget.modificarAnimal',    											
 		title: 'Modificar de animal',
 		autoScroll: true,
-	url: "http://localhost:8080/AlbaControlador/modificarAnimal",
+	url: "/AlbaControlador/modificarAnimal",
     	layout: {
             type:'hbox',
             padding:'5',
