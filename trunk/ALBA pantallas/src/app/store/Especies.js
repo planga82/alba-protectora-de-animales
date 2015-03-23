@@ -3,7 +3,7 @@ Ext.define('AM.store.Especies', {
     	model: 'AM.model.Especie',
     	proxy: {
             type: 'ajax',
-            url : 'http://localhost:8080/AlbaControlador/listadoEspecies',
+            url : '/AlbaControlador/listadoEspecies',
             reader: {
 				type: 'json',
 				root: 'especies'

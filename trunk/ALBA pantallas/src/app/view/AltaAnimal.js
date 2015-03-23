@@ -3,7 +3,7 @@ Ext.define('AM.view.AltaAnimal', {
     	alias: 'widget.altaAnimal',    											
 		title: 'Alta de animal',
 		autoScroll: true,
-		url: "http://localhost:8080/AlbaControlador/altaAnimal",
+		url: "/AlbaControlador/altaAnimal",
     	layout: {
             type:'hbox',
             padding:'5',

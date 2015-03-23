@@ -3,7 +3,7 @@ Ext.define('AM.view.ActualizarImagenAnimal', {
     	alias: 'widget.actualizarImagenAnimal',    											
 		title: 'Actualizar Imagen',
 		autoScroll: false,
-		url: "http://localhost:8080/AlbaControlador/actualizarImagenAnimal",
+		url: "/AlbaControlador/actualizarImagenAnimal",
     	layout: {
             type:'vbox',
             padding:'5',

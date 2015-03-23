@@ -3,7 +3,7 @@ Ext.define('AM.view.CambioEstado', {
     	alias: 'widget.cambioEstado',    											
 		title: 'Cambio animal',
 		autoScroll: false,
-		url: "http://localhost:8080/AlbaControlador/cambioEstadoAnimal",
+		url: "/AlbaControlador/cambioEstadoAnimal",
     	layout: {
             type:'vbox',
             padding:'5',

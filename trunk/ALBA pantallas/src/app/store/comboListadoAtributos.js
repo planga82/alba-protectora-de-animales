@@ -3,7 +3,7 @@ Ext.define('AM.store.comboListadoAtributos', {
     	model: 'AM.model.Atributos',
     	proxy: {
             type: 'ajax',
-            url : 'http://localhost:8080/AlbaControlador/listadoAtributos',
+            url : '/AlbaControlador/listadoAtributos',
             reader: {
 				type: 'json',
 				root: 'listadoAtributos'

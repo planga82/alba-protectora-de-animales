@@ -3,7 +3,7 @@ Ext.define('AM.view.AltaEspecie', {
     	alias: 'widget.altaEspecie',    											
     	title: 'Alta de especie',
     	autoScroll: false,
-    	url: "http://localhost:8080/AlbaControlador/altaEspecie",
+    	url: "/AlbaControlador/altaEspecie",
     	layout: {
             type:'vbox',
             padding:'5',

@@ -3,7 +3,7 @@ Ext.define('AM.view.CambioEstadoInstitucion', {
     	alias: 'widget.cambioEstadoInstitucion',    											
 	title: 'Baja de Institución',
 	autoScroll: false,
-	url: "http://localhost:8080/AlbaControlador/cambioEstadoInstitucion",
+	url: "/AlbaControlador/cambioEstadoInstitucion",
     	layout: {
             type:'vbox',
             padding:'5',

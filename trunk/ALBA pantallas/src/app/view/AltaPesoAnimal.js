@@ -3,7 +3,7 @@ Ext.define('AM.view.AltaPesoAnimal', {
     	alias: 'widget.altaPesoAnimal',    											
 		title: 'Modificar peso animal',
 		autoScroll: false,
-		url: "http://localhost:8080/AlbaControlador/ModificarPesoAnimal",
+		url: "/AlbaControlador/ModificarPesoAnimal",
     	layout: {
             type:'vbox',
             padding:'5',

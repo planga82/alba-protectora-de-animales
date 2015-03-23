@@ -3,7 +3,7 @@ Ext.define('AM.view.CambioEstadoPersona', {
     	alias: 'widget.cambioEstadoPersona',    											
 	title: 'Cambio estado de persona',
 	autoScroll: false,
-	url: "http://localhost:8080/AlbaControlador/cambioEstadoPersona",
+	url: "/AlbaControlador/cambioEstadoPersona",
     	layout: {
             type:'vbox',
             padding:'5',
