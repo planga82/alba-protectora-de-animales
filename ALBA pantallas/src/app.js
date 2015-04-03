@@ -4,7 +4,7 @@ Ext.application({
 
     appFolder: 'app',
     
-    controllers: ['Principal','Animales','Instituciones', 'Ubicaciones','Personas','Listados'],
+    controllers: ['Principal','Animales','Instituciones', 'Ubicaciones','Personas','Listados','Medicamentos'],
 
     launch: function() {
         Ext.create('Ext.container.Viewport', {
@@ -55,7 +55,7 @@ Ext.application({
 			return pantallaAnterior[pantallaAnterior.length-2];    		    				
 		};
 		
-		//variables globales de seleccion de filas en los grid
+		//variables globales de selección de filas en los grid
 		
 		seleccionUbicacion=null;
 		storeRecargar=null;
