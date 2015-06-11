@@ -34,6 +34,9 @@ Ext.define('AM.controller.Principal', {
 	            'panelPrincipal2 button[action=altaInstitucion]': {
 	                click: this.altaInstitucionPantalla
 	            },
+	            'panelPrincipal2 button[action=altaProveedor]': {
+	                click: this.altaProveedorPantalla
+	            },
 	            'panelPrincipal2 button[action=listados]': {
 	                click: this.pantallaListados
 	            },
@@ -373,6 +376,10 @@ Ext.define('AM.controller.Principal', {
 		
 		altaInstitucionPantalla: function(button){
 	    	var view = Ext.widget('altaInstitucion');
+			irPantalla('panelPrincipal2',view);				    	
+		},
+		altaProveedorPantalla: function(button){
+	    	var view = Ext.widget('altaProveedor');
 			irPantalla('panelPrincipal2',view);				    	
 		},
 		

@@ -88,6 +88,11 @@ Ext.define('AM.view.Principal2', {
 							text: 'Alta institución',
 							action: 'altaInstitucion',
 							scope: this
+						},{
+							xtype: 'button',
+							text: 'Alta Proveedor',
+							action: 'altaProveedor',
+							scope: this
 						}
 				    ]
 				},{
