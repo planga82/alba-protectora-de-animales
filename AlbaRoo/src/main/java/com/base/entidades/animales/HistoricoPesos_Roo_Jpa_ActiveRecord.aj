@@ -14,6 +14,8 @@ privileged aspect HistoricoPesos_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager HistoricoPesos.entityManager;
     
+    public static final List<String> HistoricoPesos.fieldNames4OrderClauseFilter = java.util.Arrays.asList("identificador", "animal", "fecha", "peso");
+    
     public static final EntityManager HistoricoPesos.entityManager() {
         EntityManager em = new HistoricoPesos().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,12 +30,34 @@ privileged aspect HistoricoPesos_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM HistoricoPesos o", HistoricoPesos.class).getResultList();
     }
     
+    public static List<HistoricoPesos> HistoricoPesos.findAllHistoricoPesoses(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM HistoricoPesos o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, HistoricoPesos.class).getResultList();
+    }
+    
     public static HistoricoPesos HistoricoPesos.findHistoricoPesos(long identificador) {
         return entityManager().find(HistoricoPesos.class, identificador);
     }
     
     public static List<HistoricoPesos> HistoricoPesos.findHistoricoPesosEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM HistoricoPesos o", HistoricoPesos.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<HistoricoPesos> HistoricoPesos.findHistoricoPesosEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM HistoricoPesos o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, HistoricoPesos.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

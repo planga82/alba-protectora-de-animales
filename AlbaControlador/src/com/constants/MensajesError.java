@@ -31,4 +31,8 @@ public class MensajesError {
 	public static String codUbicacionYaDadaDeBaja 			= "MSGERR210-Ubicación ya dada de baja";
 	public static String codNombreInstitucionYaExiste		= "MSGERR211-Nombre institución ya existe";
 
+	//Proveedores
+	public static String codProveedorVacioNoPermitido		= "MSGERR301-El nombre del proveedor debe ser informado";
+	public static String codProveedorDuplicado				= "MSGERR302-El proveedor ya esta dado de alta";
+	
 }

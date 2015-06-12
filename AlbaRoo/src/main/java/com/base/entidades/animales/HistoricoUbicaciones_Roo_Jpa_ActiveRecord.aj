@@ -14,6 +14,8 @@ privileged aspect HistoricoUbicaciones_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager HistoricoUbicaciones.entityManager;
     
+    public static final List<String> HistoricoUbicaciones.fieldNames4OrderClauseFilter = java.util.Arrays.asList("identificador", "fechaEntrada", "fechaSalida", "textoIdentUbicacion", "textoidentAnimal");
+    
     public static final EntityManager HistoricoUbicaciones.entityManager() {
         EntityManager em = new HistoricoUbicaciones().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,12 +30,34 @@ privileged aspect HistoricoUbicaciones_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM HistoricoUbicaciones o", HistoricoUbicaciones.class).getResultList();
     }
     
+    public static List<HistoricoUbicaciones> HistoricoUbicaciones.findAllHistoricoUbicacioneses(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM HistoricoUbicaciones o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, HistoricoUbicaciones.class).getResultList();
+    }
+    
     public static HistoricoUbicaciones HistoricoUbicaciones.findHistoricoUbicaciones(long identificador) {
         return entityManager().find(HistoricoUbicaciones.class, identificador);
     }
     
     public static List<HistoricoUbicaciones> HistoricoUbicaciones.findHistoricoUbicacionesEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM HistoricoUbicaciones o", HistoricoUbicaciones.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<HistoricoUbicaciones> HistoricoUbicaciones.findHistoricoUbicacionesEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM HistoricoUbicaciones o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, HistoricoUbicaciones.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

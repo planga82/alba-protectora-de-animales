@@ -14,6 +14,8 @@ privileged aspect TipoInstitucion_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager TipoInstitucion.entityManager;
     
+    public static final List<String> TipoInstitucion.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombreTipo", "instituciones");
+    
     public static final EntityManager TipoInstitucion.entityManager() {
         EntityManager em = new TipoInstitucion().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,6 +30,17 @@ privileged aspect TipoInstitucion_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM TipoInstitucion o", TipoInstitucion.class).getResultList();
     }
     
+    public static List<TipoInstitucion> TipoInstitucion.findAllTipoInstitucions(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM TipoInstitucion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, TipoInstitucion.class).getResultList();
+    }
+    
     public static TipoInstitucion TipoInstitucion.findTipoInstitucion(String nombreTipo) {
         if (nombreTipo == null || nombreTipo.length() == 0) return null;
         return entityManager().find(TipoInstitucion.class, nombreTipo);
@@ -35,6 +48,17 @@ privileged aspect TipoInstitucion_Roo_Jpa_ActiveRecord {
     
     public static List<TipoInstitucion> TipoInstitucion.findTipoInstitucionEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM TipoInstitucion o", TipoInstitucion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<TipoInstitucion> TipoInstitucion.findTipoInstitucionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM TipoInstitucion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, TipoInstitucion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect UbicacionInstitucion_Roo_Jpa_ActiveRecord {
     
+    public static final List<String> UbicacionInstitucion.fieldNames4OrderClauseFilter = java.util.Arrays.asList("institucion");
+    
     public static long UbicacionInstitucion.countUbicacionInstitucions() {
         return entityManager().createQuery("SELECT COUNT(o) FROM UbicacionInstitucion o", Long.class).getSingleResult();
     }
@@ -17,12 +19,34 @@ privileged aspect UbicacionInstitucion_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM UbicacionInstitucion o", UbicacionInstitucion.class).getResultList();
     }
     
+    public static List<UbicacionInstitucion> UbicacionInstitucion.findAllUbicacionInstitucions(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM UbicacionInstitucion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, UbicacionInstitucion.class).getResultList();
+    }
+    
     public static UbicacionInstitucion UbicacionInstitucion.findUbicacionInstitucion(long idInterno) {
         return entityManager().find(UbicacionInstitucion.class, idInterno);
     }
     
     public static List<UbicacionInstitucion> UbicacionInstitucion.findUbicacionInstitucionEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM UbicacionInstitucion o", UbicacionInstitucion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<UbicacionInstitucion> UbicacionInstitucion.findUbicacionInstitucionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM UbicacionInstitucion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, UbicacionInstitucion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

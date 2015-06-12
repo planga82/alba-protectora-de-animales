@@ -14,6 +14,8 @@ privileged aspect Institucion_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Institucion.entityManager;
     
+    public static final List<String> Institucion.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "NIF", "direccion", "personaContacto", "telefonoContacto", "emailContacto", "estado", "motivoBaja", "fechaBaja", "ubicaciones", "animalesPatrocinados", "paginaWeb", "cuentaCargo", "nombreDepartamento1", "personaContactoDepartamento1", "emailDepartamento1", "telefonoDepartamento1", "nombreDepartamento2", "personaContactoDepartamento2", "emailDepartamento2", "telefonoDepartamento2", "nombreDepartamento3", "personaContactoDepartamento3", "emailDepartamento3", "telefonoDepartamento3", "tipo");
+    
     public static final EntityManager Institucion.entityManager() {
         EntityManager em = new Institucion().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,6 +30,17 @@ privileged aspect Institucion_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Institucion o", Institucion.class).getResultList();
     }
     
+    public static List<Institucion> Institucion.findAllInstitucions(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Institucion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Institucion.class).getResultList();
+    }
+    
     public static Institucion Institucion.findInstitucion(String nombre) {
         if (nombre == null || nombre.length() == 0) return null;
         return entityManager().find(Institucion.class, nombre);
@@ -35,6 +48,17 @@ privileged aspect Institucion_Roo_Jpa_ActiveRecord {
     
     public static List<Institucion> Institucion.findInstitucionEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Institucion o", Institucion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<Institucion> Institucion.findInstitucionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Institucion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Institucion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

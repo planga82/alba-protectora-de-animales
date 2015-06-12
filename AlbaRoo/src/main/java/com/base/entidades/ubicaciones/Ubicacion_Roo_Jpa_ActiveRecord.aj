@@ -14,6 +14,8 @@ privileged aspect Ubicacion_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Ubicacion.entityManager;
     
+    public static final List<String> Ubicacion.fieldNames4OrderClauseFilter = java.util.Arrays.asList("idInterno", "nombre", "animales");
+    
     public static final EntityManager Ubicacion.entityManager() {
         EntityManager em = new Ubicacion() {
             public java.lang.String getNombreMostrar() {
@@ -32,12 +34,34 @@ privileged aspect Ubicacion_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Ubicacion o", Ubicacion.class).getResultList();
     }
     
+    public static List<Ubicacion> Ubicacion.findAllUbicacions(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Ubicacion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Ubicacion.class).getResultList();
+    }
+    
     public static Ubicacion Ubicacion.findUbicacion(long idInterno) {
         return entityManager().find(Ubicacion.class, idInterno);
     }
     
     public static List<Ubicacion> Ubicacion.findUbicacionEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Ubicacion o", Ubicacion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<Ubicacion> Ubicacion.findUbicacionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Ubicacion o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Ubicacion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

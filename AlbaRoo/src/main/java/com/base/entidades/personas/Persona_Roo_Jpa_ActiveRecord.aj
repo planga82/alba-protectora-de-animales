@@ -14,6 +14,8 @@ privileged aspect Persona_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Persona.entityManager;
     
+    public static final List<String> Persona.fieldNames4OrderClauseFilter = java.util.Arrays.asList("id", "nombre", "apellidos", "DNI", "calle", "numero", "codPostal", "poblacion", "provincia", "pais", "telefono", "email", "estado", "cuentaBancaria", "telefono2", "email2", "motivoBaja", "fechaBaja", "ubicaciones", "relacionesALBA", "animalesPatrocinados", "observaciones");
+    
     public static final EntityManager Persona.entityManager() {
         EntityManager em = new Persona().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,12 +30,34 @@ privileged aspect Persona_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Persona o", Persona.class).getResultList();
     }
     
+    public static List<Persona> Persona.findAllPersonae(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Persona o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Persona.class).getResultList();
+    }
+    
     public static Persona Persona.findPersona(long id) {
         return entityManager().find(Persona.class, id);
     }
     
     public static List<Persona> Persona.findPersonaEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Persona o", Persona.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<Persona> Persona.findPersonaEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Persona o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Persona.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

@@ -14,6 +14,8 @@ privileged aspect RelacionesALBA_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager RelacionesALBA.entityManager;
     
+    public static final List<String> RelacionesALBA.fieldNames4OrderClauseFilter = java.util.Arrays.asList("relacion");
+    
     public static final EntityManager RelacionesALBA.entityManager() {
         EntityManager em = new RelacionesALBA().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,6 +30,17 @@ privileged aspect RelacionesALBA_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM RelacionesALBA o", RelacionesALBA.class).getResultList();
     }
     
+    public static List<RelacionesALBA> RelacionesALBA.findAllRelacionesALBAs(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM RelacionesALBA o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, RelacionesALBA.class).getResultList();
+    }
+    
     public static RelacionesALBA RelacionesALBA.findRelacionesALBA(Long id) {
         if (id == null) return null;
         return entityManager().find(RelacionesALBA.class, id);
@@ -35,6 +48,17 @@ privileged aspect RelacionesALBA_Roo_Jpa_ActiveRecord {
     
     public static List<RelacionesALBA> RelacionesALBA.findRelacionesALBAEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM RelacionesALBA o", RelacionesALBA.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<RelacionesALBA> RelacionesALBA.findRelacionesALBAEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM RelacionesALBA o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, RelacionesALBA.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

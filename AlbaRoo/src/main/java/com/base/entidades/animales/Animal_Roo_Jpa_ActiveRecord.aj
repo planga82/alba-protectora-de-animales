@@ -14,6 +14,8 @@ privileged aspect Animal_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Animal.entityManager;
     
+    public static final List<String> Animal.fieldNames4OrderClauseFilter = java.util.Arrays.asList("id", "estado", "fechaEstado", "chip", "segundoIdentificador", "nombre", "raza", "fechaNacimiento", "sexo", "esterilizado", "color", "tamano", "propietario", "fechaRegistro", "descripcion", "foto", "lugarRecogida", "recogidoAyuntamiento", "personaAvisa", "fechaAvisa", "personaRecoge", "fechaRecoge", "personaRecepciona", "fechaRecepciona", "pesoActual", "alturaCruz", "fechaPesoActual", "extensionImagen", "historicoPesos", "especie", "institucionPatrocinadora", "personaPatrocinadora", "ubicacionActual", "fechaUbicacionActual", "historicoUbicaciones");
+    
     public static final EntityManager Animal.entityManager() {
         EntityManager em = new Animal().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,12 +30,34 @@ privileged aspect Animal_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Animal o", Animal.class).getResultList();
     }
     
+    public static List<Animal> Animal.findAllAnimals(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Animal o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Animal.class).getResultList();
+    }
+    
     public static Animal Animal.findAnimal(long id) {
         return entityManager().find(Animal.class, id);
     }
     
     public static List<Animal> Animal.findAnimalEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Animal o", Animal.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<Animal> Animal.findAnimalEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Animal o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Animal.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
