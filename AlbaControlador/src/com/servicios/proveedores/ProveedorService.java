@@ -1,7 +1,10 @@
 package com.servicios.proveedores;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
+import com.base.entidades.animales.Animal;
 import com.base.entidades.proveedores.Proveedor;
 import com.constants.MensajesError;
 import com.servicios.proveedores.contenedores.ContenedorAltaProveedor;
@@ -39,4 +42,9 @@ public class ProveedorService {
 		
 		return p;
 	}
+	
+	public List<Proveedor> consultaTexto(String texto, boolean incluirTodosEstados, int maxResult){
+    	if(texto==null) texto = "";    	
+    	return Proveedor.findTextoSinFiltro(texto,maxResult);    	
+    }
 }

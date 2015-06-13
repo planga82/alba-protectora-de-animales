@@ -10,6 +10,7 @@ import com.base.interfaces.ResultadoBusquedaGeneral;
 import com.servicios.animales.AnimalService;
 import com.servicios.instituciones.InstitucionService;
 import com.servicios.personas.PersonaService;
+import com.servicios.proveedores.ProveedorService;
 
 
 public class GeneralService {
@@ -26,6 +27,7 @@ public class GeneralService {
 				resultado.addAll(new AnimalService().consultaTexto(palabras[i].trim(), incluirTodosEstados, maxResult));
 				resultado.addAll(new PersonaService().consultaTexto(palabras[i].trim(), incluirTodosEstados, maxResult));
 				resultado.addAll(new InstitucionService().consultaTexto(palabras[i].trim(), incluirTodosEstados, maxResult));
+				resultado.addAll(new ProveedorService().consultaTexto(palabras[i].trim(), incluirTodosEstados, maxResult));
 			}
 			if(resultado.size()>maxResult){
 				HashSet<ResultadoBusquedaGeneral> resultado1 = new HashSet<>();

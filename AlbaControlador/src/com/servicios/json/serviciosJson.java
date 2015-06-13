@@ -28,6 +28,7 @@ import com.base.entidades.instituciones.Institucion;
 import com.base.entidades.instituciones.TipoInstitucion;
 import com.base.entidades.personas.Persona;
 import com.base.entidades.personas.RelacionesALBA;
+import com.base.entidades.proveedores.Proveedor;
 import com.base.entidades.ubicaciones.UbicacionInstitucion;
 import com.base.entidades.ubicaciones.UbicacionPersona;
 import com.base.interfaces.JsonObject;
@@ -170,6 +171,8 @@ public class serviciosJson {
 			return generaJSonObjeto((HistoricoUbicaciones)e);
 		if(e instanceof Atributo)
 			return generaJSonObjeto((Atributo)e);
+		if(e instanceof Proveedor)
+			return generaJSonObjeto((Proveedor)e,textoBuscado);
 		
 		return null;
 	}
@@ -782,6 +785,52 @@ public class serviciosJson {
 		valores.put("info", info);
 		valores.put("descripcionResultado", descripcionResultado);
 		return valores;
+	}
+	
+	private static Map<String, String> generaJSonObjeto(Proveedor e, String textoBuscado){
+		Map<String, String> valores = new HashMap<>();
+		
+		String info="";
+		valores.put("tipoResultado", "Proveedor");
+		
+		String Nombre         = e.getNombre()        ;
+		String Cif            = e.getCif()           ;
+		String Domicilio      = e.getDomicilio()     ;
+		String Localidad      = e.getLocalidad()     ;
+		String Provincia      = e.getProvincia()     ;
+		String CodigoPostal   = e.getCodigoPostal()  ;
+		String Pais           = e.getPais()          ;
+		String Fax            = e.getFax()           ;
+		String Telefono       = e.getTelefono()      ;
+		String Email          = e.getEmail()         ;
+		String NombreContacto = e.getNombreContacto();
+		String DniContacto    = e.getDniContacto()   ;
+		String CargoContacto  = e.getCargoContacto() ;
+		String NumeroCuenta   = e.getNumeroCuenta()  ;
+		
+		String descripcionResultado = "";
+		
+		
+		if(Nombre         !=null){ valores.put("nombreProveedor					", Nombre         ); info += " Nombre         :" +Nombre        ; if(Nombre        .contains(textoBuscado)){descripcionResultado += " | Nombre        :" + Nombre        ;	}}
+		if(Cif            !=null){ valores.put("cifProveedor					", Cif            ); info += " Cif            :" +Cif           ; if(Cif           .contains(textoBuscado)){descripcionResultado += " | Cif           :" + Cif           ;	}}
+		if(Domicilio      !=null){ valores.put("DomicilioProveedor				", Domicilio      ); /*info += " Domicilio      :" +Domicilio     ;*/ if(Domicilio     .contains(textoBuscado)){descripcionResultado += " | Domicilio     :" + Domicilio     ;	}}
+		if(Localidad      !=null){ valores.put("LocalidadProveedor				", Localidad      ); info += " Localidad      :" +Localidad     ; if(Localidad     .contains(textoBuscado)){descripcionResultado += " | Localidad     :" + Localidad     ;	}}
+		if(Provincia      !=null){ valores.put("ProvinciaProveedor				", Provincia      ); info += " Provincia      :" +Provincia     ; if(Provincia     .contains(textoBuscado)){descripcionResultado += " | Provincia     :" + Provincia     ;	}}
+		if(CodigoPostal   !=null){ valores.put("CodigoPostalProveedor			", CodigoPostal   ); /*info += " CodigoPostal   :" +CodigoPostal  ;*/ if(CodigoPostal  .contains(textoBuscado)){descripcionResultado += " | CodigoPostal  :" + CodigoPostal  ;	}}
+		if(Pais           !=null){ valores.put("PaisProveedor					", Pais           ); /*info += " Pais           :" +Pais          ;*/ if(Pais          .contains(textoBuscado)){descripcionResultado += " | Pais          :" + Pais          ;	}}
+		if(Fax            !=null){ valores.put("faxProveedor					", Fax            ); /*info += " Fax            :" +Fax           ;*/ if(Fax           .contains(textoBuscado)){descripcionResultado += " | Fax           :" + Fax           ;	}}
+		if(Telefono       !=null){ valores.put("TelefonoProveedor				", Telefono       ); /*info += " Telefono       :" +Telefono      ;*/ if(Telefono      .contains(textoBuscado)){descripcionResultado += " | Telefono      :" + Telefono      ;	}}
+		if(Email          !=null){ valores.put("emailProveedor					", Email          ); /*info += " Email          :" +Email         ;*/ if(Email         .contains(textoBuscado)){descripcionResultado += " | Email         :" + Email         ;	}}
+		if(NombreContacto !=null){ valores.put("nombrePersonaContactoProveedor	", NombreContacto ); /*info += " NombreContacto :" +NombreContacto;*/ if(NombreContacto.contains(textoBuscado)){descripcionResultado += " | NombreContacto:" + NombreContacto;	}}
+		if(DniContacto    !=null){ valores.put("dniPersonaContactoProveedor		", DniContacto    ); /*info += " DniContacto    :" +DniContacto   ;*/ if(DniContacto   .contains(textoBuscado)){descripcionResultado += " | DniContacto   :" + DniContacto   ;	}}
+		if(CargoContacto  !=null){ valores.put("cargoPersonaContactoProveedor	", CargoContacto  ); /*info += " CargoContacto  :" +CargoContacto ;*/ if(CargoContacto .contains(textoBuscado)){descripcionResultado += " | CargoContacto :" + CargoContacto ;	}}
+		if(NumeroCuenta   !=null){ valores.put("numCuentaProveedor				", NumeroCuenta   ); /*info += " NumeroCuenta   :" +NumeroCuenta  ;*/ if(NumeroCuenta  .contains(textoBuscado)){descripcionResultado += " | NumeroCuenta  :" + NumeroCuenta  ;	}}
+
+		valores.put("info", info);
+		valores.put("descripcionResultado", descripcionResultado);
+		return valores;
+		
+		
 	}
 	
 	public static String cargaParametro(HttpServletRequest request, String parametro) {
