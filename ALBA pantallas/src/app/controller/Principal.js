@@ -34,6 +34,18 @@ Ext.define('AM.controller.Principal', {
 	            'panelPrincipal2 button[action=altaInstitucion]': {
 	                click: this.altaInstitucionPantalla
 	            },
+	            'panelPrincipal2 button[action=altaProveedor]': {
+	                click: this.altaProveedorPantalla
+	            },
+	            
+	            
+	            /*modificaciones*/
+	            'panelPrincipal2 button[action=altaMedicamento]': {
+	                click: this.altaMedicamentoPantalla
+	            },
+	            /*fin*/
+	            
+	            
 	            'panelPrincipal2 button[action=listados]': {
 	                click: this.pantallaListados
 	            },
@@ -179,7 +191,7 @@ Ext.define('AM.controller.Principal', {
 	    modificarInstitucionclick: function(button){    					
 			var view = Ext.widget('altaInstitucion');	
 	    	view.loadRecord(button.up('panelPrincipal2').query('gridpanel')[0].getSelectionModel().getLastSelected());
-	    	view.title = 'Modificar Institución';
+	    	view.title = 'Modificar InstituciÃ³n';
 	    		    		
 			var items = view.query('component[name="accion"]');
 			items[0].setValue('modificacion');
@@ -193,7 +205,7 @@ Ext.define('AM.controller.Principal', {
 	    detalleInstitucionclick: function(button){
 			var view = Ext.widget('altaInstitucion');
 			
-			view.title = 'Detalle Institución';
+			view.title = 'Detalle Instituciï¿½n';
 			
 			//Configuramos la pantalla antes de abrirla
 			var items = view.query('component[cls="tipo1"]');
@@ -373,6 +385,10 @@ Ext.define('AM.controller.Principal', {
 		
 		altaInstitucionPantalla: function(button){
 	    	var view = Ext.widget('altaInstitucion');
+			irPantalla('panelPrincipal2',view);				    	
+		},
+		altaProveedorPantalla: function(button){
+	    	var view = Ext.widget('altaProveedor');
 			irPantalla('panelPrincipal2',view);				    	
 		},
 		
