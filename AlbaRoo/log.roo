@@ -213,7 +213,7 @@ hint
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-01-11 21:36:23
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-01-11 22:31:57
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-01-26 20:07:22
-jpa setup --provider HIBERNATE --database MySQL --databaseName test --userName pablo --password pablo
+jpa setup --provider HIBERNATE --database MySQL --databaseName test --userName galia --password galia
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-01-26 22:14:25
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-02-07 20:29:13
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-02-07 23:10:46
@@ -226,3 +226,12 @@ jpa setup --provider HIBERNATE --database MySQL --databaseName test --userName p
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2015-02-28 18:56:00
 jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2015-02-28 21:47:54
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2015-06-22 17:19:26
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2015-06-22 17:26:40
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2015-06-22 17:28:56
+hint
+hint eclipse
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2015-06-22 18:16:54
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2015-06-22 21:20:51
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2015-06-23 01:08:13
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2015-06-25 14:39:32
