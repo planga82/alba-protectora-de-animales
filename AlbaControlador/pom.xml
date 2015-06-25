@@ -23,7 +23,7 @@
           <warName>AlbaControlador</warName>
           <warSourceDirectory>WebContent</warSourceDirectory>
           <webappDirectory>C:/Temp/compilacion</webappDirectory>
-          <outputDirectory>C:\Users\Pablo\Despliegues</outputDirectory>
+          <outputDirectory>C:\Users\PUÑETEIRA\Despliegues</outputDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
