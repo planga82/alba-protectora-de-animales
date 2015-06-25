@@ -5,7 +5,10 @@ Ext.application({
 	appFolder : 'app',
 
 	controllers : [ 'Principal', 'Animales', 'Instituciones', 'Ubicaciones',
-			'Personas', 'Listados', 'Medicamentos' ],
+			'Personas', 'Listados', 'Proveedores', 'Medicamentos' ],
+
+/*	controllers : [ 'Principal', 'Animales', 'Instituciones', 'Ubicaciones',
+			'Personas', 'Listados', 'Proveedores' ],*/
 
 	launch : function() {
 		Ext.create('Ext.container.Viewport', {
