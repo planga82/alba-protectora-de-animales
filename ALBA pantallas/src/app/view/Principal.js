@@ -39,6 +39,23 @@ Ext.define('AM.view.Principal', {
 						id : 'consultaPersonas'
 					} ]
 				}
+			
+			/*medicamentos*/
+			
+			}, {
+				text : 'Medicamentos',
+				menu : {
+					items : [ {
+						text : 'Alta',
+						id : 'altaMedicamentos'
+					}, {
+						text : 'Consulta',
+						id : 'consultaMedicamentos'
+					} ]
+				}
+			
+			/* fin medicamentos*/
+			
 			} ]
 		}, {
 			xtype : 'panel',

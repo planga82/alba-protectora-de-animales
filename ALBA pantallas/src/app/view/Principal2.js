@@ -4,7 +4,7 @@ Ext.define('AM.view.Principal2', {
 	header : false,
 	layout : 'border',
 	items : [ {
-		region : 'north', // posición en la pantalla 
+		region : 'north', // posición en la pantalla
 		xtype : 'form',
 		header : false,
 		height : 50,
@@ -230,6 +230,50 @@ Ext.define('AM.view.Principal2', {
 				action : 'ubicacionesPersona',
 				cls : 'consulta'
 			} ]
+			
+			/*Medicamento*/
+			
+		}, {
+			xtype : 'panel',
+			layout : 'hbox',
+			header : false,
+			hidden : true,
+			name : 'operacionesMedicamento',
+			bodyStyle : {
+				"background-color" : "#E6E6E6"
+			},
+			border : 0,
+			defaults : {
+				margin : '5 5 5 5'
+			},
+			items : [ {
+				xtype : 'button',
+				text : 'Detalle',
+				margin : '5 5 5 5',
+				action : 'detalleMedicamento',
+				cls : 'consulta'
+			}, {
+				xtype : 'button',
+				text : 'Modificación',
+				margin : '5 5 5 5',
+				action : 'modificarMedicamento',
+				cls : 'consulta'
+			}, {
+				xtype : 'button',
+				text : 'Cambio estado',
+				margin : '5 5 5 5',
+				action : 'cambioEstadoMedicamento',
+				cls : 'consulta'
+			}, {
+				xtype : 'button',
+				text : 'Gestión ubicaciones',
+				margin : '5 5 5 5',
+				action : 'ubicacionesMedicamento',
+				cls : 'consulta'
+			} ]
+			
+			/*fin Medicamento*/
+			
 		} ]
 	} ]
 });

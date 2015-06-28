@@ -1,5 +1,6 @@
 /**
  * Medicamentos. Controller
+ * junio 2015
  */
 Ext
 		.define(
