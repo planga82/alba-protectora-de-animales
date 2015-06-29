@@ -30,5 +30,9 @@ public class MensajesError {
 	public static String codUbicacionNoExste	 			= "MSGERR209-Ubicación no existe";
 	public static String codUbicacionYaDadaDeBaja 			= "MSGERR210-Ubicación ya dada de baja";
 	public static String codNombreInstitucionYaExiste		= "MSGERR211-Nombre institución ya existe";
+	
+	//Medicamentos
+	public static String codNombreYaExistenteistema			= "MSGERR301-Nombre de medicamento ya existe";
+	
 
 }
