@@ -4,7 +4,7 @@
 Ext.define('AM.store.Medicamentos', {
 	extend : 'Ext.data.Store',
 	model : 'AM.model.Medicamento',
-	proxy : {
+	/*proxy : {
 		type : 'ajax',
 		url : 'http://localhost:8080/AlbaControlador/busquedaMedicamento',
 		reader : {
@@ -18,6 +18,8 @@ Ext.define('AM.store.Medicamentos', {
 			console.log(records);
 			console.log(successful);
 			console.log(operation);
-		}
-	}
+		}*/
+	data: 	[
+		        {"id":"1", "nombre":"Aspirina"}
+			]
 });
